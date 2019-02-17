@@ -1,0 +1,7 @@
+{
+    "name": "rewind-conference",
+    "builds": [{ "src": "/frontend/*.js", "use": "@now/node" }],
+    "github": {
+        "enabled": true
+    }
+}

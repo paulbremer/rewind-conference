@@ -1,0 +1,33 @@
+{
+    "name": "rewind-conference",
+    "version": "1.0.0",
+    "description": "Frontend for Rewind Conference website.",
+    "main": "index.js",
+    "contributors": [
+        "Michael Koek <michaelkoek@saxum.nl>",
+        "Paul Bremer <paulbremer@saxum.nl>"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "dev": "node server.js",
+        "next": "next",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.1",
+        "prop-types": "^15.7.2"
+    },
+    "dependencies": {
+        "apollo-boost": "^0.1.28",
+        "express": "^4.16.4",
+        "graphql": "^14.1.1",
+        "graphql-anywhere": "^4.1.28",
+        "graphql-tag": "^2.10.1",
+        "isomorphic-fetch": "^2.2.1",
+        "next": "^8.0.1",
+        "react": "^16.8.2",
+        "react-apollo": "^2.4.1",
+        "react-dom": "^16.8.2"
+    }
+}
