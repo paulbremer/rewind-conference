@@ -1,16 +1,8 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
-
-const Title = styled.h1`
-    background-color: red;
-    color: white;
-    padding: 10px;
-`;
 
 const IndexPage = ({ data }) => {
     const talks = data;
@@ -19,12 +11,8 @@ const IndexPage = ({ data }) => {
     return (
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-            <Title>Hi people</Title>
             <p>Welcome to your new Gatsby site.</p>
-            <p>Now go build something great.</p>
             <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                <Image />
-
                 {talks.rwconf.lineUps[0].talks.map(talk => (
                     <div key={talk.id}>
                         <h3>{talk.title}</h3>
@@ -38,14 +26,14 @@ const IndexPage = ({ data }) => {
     );
 };
 
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
+// const currentDate = new Date();
+// const currentYear = currentDate.getFullYear();
+// const currentMonth = currentDate.getMonth() + 1;
 
 export const query = graphql`
-    query getCurrentLineUp {
+    query getCurrentLineUp($year: Int, $month: Int) {
         rwconf {
-            lineUps(where: { year: 2019, month: 2 }) {
+            lineUps(where: { year: $year, month: $month }) {
                 id
                 year
                 month
