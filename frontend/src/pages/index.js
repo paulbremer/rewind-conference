@@ -26,10 +26,6 @@ const IndexPage = ({ data }) => {
     );
 };
 
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
-
 export const query = graphql`
     query getCurrentLineUp($currentYear: Int, $currentMonth: Int) {
         rwconf {
