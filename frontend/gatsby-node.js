@@ -5,3 +5,21 @@
  */
 
 // You can delete this file if you're not using it
+
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage, deletePage } = actions;
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+
+    deletePage(page);
+
+    createPage({
+        ...page,
+        context: {
+            currentYear,
+            currentMonth,
+        },
+    });
+};

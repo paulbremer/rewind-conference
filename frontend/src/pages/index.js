@@ -26,14 +26,14 @@ const IndexPage = ({ data }) => {
     );
 };
 
-// const currentDate = new Date();
-// const currentYear = currentDate.getFullYear();
-// const currentMonth = currentDate.getMonth() + 1;
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth() + 1;
 
 export const query = graphql`
-    query getCurrentLineUp($year: Int, $month: Int) {
+    query getCurrentLineUp($currentYear: Int, $currentMonth: Int) {
         rwconf {
-            lineUps(where: { year: $year, month: $month }) {
+            lineUps(where: { year: $currentYear, month: $currentMonth }) {
                 id
                 year
                 month
