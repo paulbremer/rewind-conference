@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
@@ -46,5 +47,9 @@ export const query = graphql`
         }
     }
 `;
+
+IndexPage.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default IndexPage;
