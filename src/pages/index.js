@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
-    const talks = data;
+    const talks = data
     console.log(talks);
 
     return (
