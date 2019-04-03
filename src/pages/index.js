@@ -49,7 +49,7 @@ export const query = graphql`
 `;
 
 IndexPage.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired
 };
 
 export default IndexPage;
