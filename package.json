@@ -7,11 +7,6 @@
         "Michael Koek <michaelkoek@saxum.nl>",
         "Paul Bremer <paulbremer@saxum.nl>"
     ],
-    "prettier": {
-        "trailingComma": "es5",
-        "tabWidth": 4,
-        "singleQuote": true
-    },
     "license": "MIT",
     "scripts": {
         "build": "gatsby build",
