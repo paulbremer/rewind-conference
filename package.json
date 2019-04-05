@@ -7,12 +7,15 @@
         "Michael Koek <michaelkoek@saxum.nl>",
         "Paul Bremer <paulbremer@saxum.nl>"
     ],
+    "license": "MIT",
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "lint": "prettier ./src/**/*.js --write",
+        "prettier": "prettier ./src/**/*.js --write",
+        "lint": "eslint src/**/**.js",
+        "lint:fix": "eslint . --fix",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
     },
     "dependencies": {
@@ -33,23 +36,18 @@
         "react-helmet": "^5.2.0",
         "styled-components": "^4.1.3"
     },
-    "keywords": [
-        "gatsby"
-    ],
-    "prettier": {
-        "trailingComma": "es5",
-        "tabWidth": 4,
-        "singleQuote": true
-    },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-    },
-    "bugs": {
-        "url": "https://github.com/gatsbyjs/gatsby/issues"
-    },
     "devDependencies": {
-        "prettier": "1.16.4"
+        "babel-eslint": "^9.0.0",
+        "eslint": "^5.14.1",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-config-wesbos": "^0.0.19",
+        "eslint-plugin-html": "^5.0.3",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-react": "^7.12.4",
+        "eslint-plugin-react-hooks": "^1.3.0",
+        "prettier": "^1.16.4"
     }
 }
