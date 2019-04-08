@@ -10,6 +10,7 @@
     "license": "MIT",
     "scripts": {
         "build": "gatsby build",
+        "now-build": "npm run build",
         "develop": "gatsby develop",
         "start": "npm run develop",
         "dev": "npm run develop",
