@@ -14,24 +14,9 @@ const IndexPage = ({ data }) => {
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-            {/* <Item /> */}
-
             {talks.rwconf.lineUps[0].talks.map(talk => (
                 <Item key={talk.id} talk={talk} />
             ))}
-
-            {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                {talks.rwconf.lineUps[0].talks.map(talk => (
-                    <div key={talk.id}>
-                        <h4>{talk.speaker}</h4>
-                        <h4>{talk.youtubeId}</h4>
-                        <h3>{talk.title}</h3>
-                        <p>{talk.description}</p>
-                    </div>
-                ))}
-            </div> */}
-
-            <Link to="/page-2/">Go to page 2</Link>
         </Layout>
     );
 };
@@ -43,8 +28,9 @@ export const query = graphql`
                 id
                 year
                 month
-                talks {
+                talks(where: { status: PUBLISHED }) {
                     id
+                    status
                     speaker
                     title
                     youtubeId

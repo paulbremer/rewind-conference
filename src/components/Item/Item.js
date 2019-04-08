@@ -63,7 +63,7 @@ const Item = ({ talk }) => (
                 <h3>{talk.conference}</h3>
             </StyledTitle>
             <StyledTags>
-                <span>React</span>
+                <span>{talk.tags[0]}</span>
             </StyledTags>
         </StyledHeader>
 
