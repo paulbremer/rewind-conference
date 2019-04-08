@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500');
+
+html,
+body {
+    font-family: 'Poppins', 'Noto Sans', 'Helvetica', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+address,
+img,
+strong,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.2;
+    background-color: #f2f5f8;
+    background-image: url(./geometry.png);
+    color: #42505c;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+embed,
+iframe,
+object {
+    max-width: 100%;
+}

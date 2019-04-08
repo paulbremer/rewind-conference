@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout/Layout';
+import Item from '../components/Item/Item';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
@@ -12,16 +13,24 @@ const IndexPage = ({ data }) => {
     return (
         <Layout>
             <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-            <p>Welcome to your new Gatsby site.</p>
-            <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+
+            {/* <Item /> */}
+
+            {talks.rwconf.lineUps[0].talks.map(talk => (
+                <Item key={talk.id} talk={talk} />
+            ))}
+
+            {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
                 {talks.rwconf.lineUps[0].talks.map(talk => (
                     <div key={talk.id}>
-                        <h3>{talk.title}</h3>
                         <h4>{talk.speaker}</h4>
+                        <h4>{talk.youtubeId}</h4>
+                        <h3>{talk.title}</h3>
                         <p>{talk.description}</p>
                     </div>
                 ))}
-            </div>
+            </div> */}
+
             <Link to="/page-2/">Go to page 2</Link>
         </Layout>
     );
