@@ -55,35 +55,81 @@ const StyledContent = styled.div`
     }
 `;
 
-const Item = ({ talk }) => (
-    <StyledItem>
-        <StyledHeader>
-            <StyledTitle>
-                <h2>{talk.speaker}</h2>
-                <h3>{talk.conference}</h3>
-            </StyledTitle>
-            <StyledTags>
-                <span>{talk.tags[0]}</span>
-            </StyledTags>
-        </StyledHeader>
+const StyledDescription = styled.p`
+    @supports (-webkit-line-clamp: 2) {
+        display: ${props => (props.expanded ? `block` : `-webkit-box`)};
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+`;
 
-        <StyledIframe
-            title={talk.title}
-            src={`https://www.youtube.com/embed/${talk.youtubeId}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-        />
+const StyledButton = styled.a`
+    display: none;
+    @supports (-webkit-line-clamp: 2) {
+        margin-top: 0.5rem;
+        display: block;
+        text-align: right;
+        padding: 0.5rem;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 1.8px;
+        color: #eb2f5a;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+`;
 
-        <StyledContent>
-            <h2>{talk.title}</h2>
-            <p>{talk.description}</p>
-        </StyledContent>
-    </StyledItem>
-);
+class Item extends React.Component {
+    state = {
+        expanded: false
+    };
+
+    render() {
+        const { talk } = this.props;
+        const { expanded } = this.state;
+
+        return (
+            <StyledItem>
+                <StyledHeader>
+                    <StyledTitle>
+                        <h2>{talk.speaker}</h2>
+                        <h3>{talk.conference}</h3>
+                    </StyledTitle>
+                    <StyledTags>
+                        <span>{talk.tags[0]}</span>
+                    </StyledTags>
+                </StyledHeader>
+
+                <StyledIframe
+                    title={talk.title}
+                    src={`https://www.youtube.com/embed/${talk.youtubeId}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                />
+
+                <StyledContent>
+                    <h2>{talk.title}</h2>
+
+                    <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
+
+                    <StyledButton
+                        tabindex="0"
+                        onClick={() => this.setState({ expanded: !expanded })}
+                    >
+                        Read {expanded ? 'less' : 'more'}
+                    </StyledButton>
+                </StyledContent>
+            </StyledItem>
+        );
+    }
+}
 
 Item.propTypes = {
-    talk: PropTypes.object.isRequired
+    talk: PropTypes.object.isRequired,
+    expanded: PropTypes.bool
 };
 
 export default Item;

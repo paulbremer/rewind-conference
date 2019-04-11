@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import './Layout.css';
 
 const StyledMain = styled.main`
-    margin-top: -7rem;
+    margin-top: calc(-7rem + 1px);
 `;
 
 const Layout = ({ children }) => (
