@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Rewind Conf`,
-        description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+        title: `Rewind Conference`,
+        description: `Get the best of conferences with Rewind. Every month a new curated list of JavaScript talks.`,
         author: `@paulbremer`
     },
     plugins: [

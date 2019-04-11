@@ -12,12 +12,16 @@ const StyledHeader = styled.header`
 
     div {
         margin: 0 auto;
-        max-width: 960;
-        padding: 1.45rem 1.0875rem;
+        max-width: 1140px;
+        padding: 2rem 2rem 1.5rem;
     }
 
     h1 {
         margin: 0;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 2rem;
+        }
     }
 
     img {
@@ -28,6 +32,10 @@ const StyledHeader = styled.header`
         color: #fff;
         font-size: 1.2rem;
         margin: 1.5rem 0;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 3rem;
+        }
     }
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout/Layout';
 import Item from '../components/Item/Item';
@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+            <SEO title="Rewind Conference" keywords={[`gatsby`, `application`, `react`]} />
 
             {talks.rwconf.lineUps[0].talks.map(talk => (
                 <Item key={talk.id} talk={talk} />

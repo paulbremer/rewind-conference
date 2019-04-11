@@ -7,17 +7,29 @@ const StyledItem = styled.div`
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
     background-color: #fff;
     margin-bottom: 1rem;
+
+    @media screen and (min-width: 768px) {
+        flex-basis: calc(50% - 1rem);
+        margin-bottom: 2rem;
+
+        &:nth-child(odd) {
+            margin-right: 1rem;
+        }
+
+        &:nth-child(even) {
+            margin-left: 1rem;
+        }
+    }
 `;
 
 const StyledHeader = styled.header`
     padding: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 `;
 
 const StyledTitle = styled.div`
-    width: 100%;
-
     h2 {
         font-size: 1.1rem;
         margin-bottom: 1rem;
@@ -30,13 +42,17 @@ const StyledTitle = styled.div`
 `;
 
 const StyledTags = styled.div`
-    margin-left: 1rem;
+    display: none;
+    @media screen and (min-width: 400px) {
+        display: block;
+        margin-left: 1rem;
 
-    span {
-        font-size: 0.9rem;
-        padding: 0.5rem;
-        border-radius: 16px;
-        background-color: rgba(121, 130, 139, 0.1);
+        span {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border-radius: 16px;
+            background-color: rgba(121, 130, 139, 0.1);
+        }
     }
 `;
 
@@ -48,14 +64,17 @@ const StyledIframe = styled.iframe`
 const StyledContent = styled.div`
     padding: 1rem;
     line-height: 1.5;
+    text-align: right;
 
     h2 {
         font-size: 18px;
         margin-bottom: 1rem;
+        text-align: left;
     }
 `;
 
 const StyledDescription = styled.p`
+    text-align: left;
     @supports (-webkit-line-clamp: 2) {
         display: ${props => (props.expanded ? `block` : `-webkit-box`)};
         -webkit-line-clamp: 3;
@@ -68,7 +87,7 @@ const StyledButton = styled.a`
     display: none;
     @supports (-webkit-line-clamp: 2) {
         margin-top: 0.5rem;
-        display: block;
+        display: inline-block;
         text-align: right;
         padding: 0.5rem;
         font-size: 14px;
