@@ -31,13 +31,14 @@ const StyledHeader = styled.header`
 
 const StyledTitle = styled.div`
     h2 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
     }
 
     h3 {
         font-size: 1rem;
         font-weight: 400;
+        color: rgba(66, 80, 92, 0.6)
     }
 `;
 
@@ -70,6 +71,7 @@ const StyledContent = styled.div`
         font-size: 18px;
         margin-bottom: 1rem;
         text-align: left;
+        min-height: 54px;
     }
 `;
 
