@@ -8,7 +8,7 @@
   Rewind Conference
 </h1>
 
-🔥 The coolest online conference.
+🔥 The coolest online conference 🔥
 
 ## 🚀 Quick start
 
