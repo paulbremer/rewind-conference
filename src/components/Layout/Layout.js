@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledMain = styled.main`
-    margin-top: calc(-7rem + 1px);
+    margin-top: calc(-6rem - 5px);
 
     @media screen and (min-width: 768px) {
         display: flex;
