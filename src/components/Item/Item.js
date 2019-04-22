@@ -12,11 +12,15 @@ const StyledItem = styled.div`
         flex-basis: calc(50% - 1rem);
         margin-bottom: 2rem;
 
-        &:nth-child(odd) {
+        &:nth-child(1),
+        &:nth-child(3),
+        &:nth-child(2n + 6) {
             margin-right: 1rem;
         }
 
-        &:nth-child(even) {
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(2n + 5) {
             margin-left: 1rem;
         }
     }
@@ -38,7 +42,7 @@ const StyledTitle = styled.div`
     h3 {
         font-size: 1rem;
         font-weight: 400;
-        color: rgba(66, 80, 92, 0.6)
+        color: rgba(66, 80, 92, 0.6);
     }
 `;
 
