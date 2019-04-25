@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { rgba } from 'polished';
+
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
+
+import theme from '../../assets/theme';
 
 const url =
     'https://gmail.us20.list-manage.com/subscribe/post?u=abb450c84ce668adeafd887be&id=2d1223e6f0';
@@ -9,9 +12,9 @@ const url =
 const StyledMailList = styled.div`
     flex-basis: 100%;
     border-radius: 4px;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
-    background-color: #fff;
-    background-image: linear-gradient(29deg, #071fc8, #0017b6);
+    box-shadow: 0 4px 16px 0 ${theme.colors.shadow};
+    background-color: ${theme.colors.blue};
+    background-image: ${theme.gradient.blue};
     margin-bottom: 1rem;
     padding: 2rem 2rem 2.5rem;
     text-align: center;
@@ -44,7 +47,7 @@ const StyledMailList = styled.div`
         width: 70%;
 
         &:focus {
-            outline-color: #eb2f5a;
+            outline-color: ${theme.colors.primary};
         }
 
         @media screen and (min-width: 420px) {
@@ -58,7 +61,7 @@ const StyledMailList = styled.div`
     }
 
     button {
-        background-color: #eb2f5a;
+        background-color: ${theme.colors.primary};
         color: white;
         border: 0;
         padding: 0.6rem;
@@ -66,11 +69,11 @@ const StyledMailList = styled.div`
         cursor: pointer;
 
         &:focus {
-            background-color: rgba(235, 47, 90, 0.9);
-            outline-color: #eb2f5a;
+            background-color: ${rgba(theme.colors.primary, 0.9)};
+            outline-color: ${theme.colors.primary};
         }
         &:hover {
-            background-color: rgba(235, 47, 90, 0.9);
+            background-color: ${rgba(theme.colors.primary, 0.9)};
         }
 
         @media screen and (min-width: 768px) {
@@ -79,12 +82,66 @@ const StyledMailList = styled.div`
     }
 `;
 
+const CustomForm = ({ status, message, onValidated }) => {
+    let email;
+    const submit = () =>
+        email &&
+        email.value.indexOf('@') > -1 &&
+        onValidated({
+            EMAIL: email.value
+        });
+
+    return (
+        <>
+            {status === 'sending' && <Message>Getting you on that list 💪🏼</Message>}
+            {status === 'error' && <Message dangerouslySetInnerHTML={{ __html: message }} />}
+            {status === 'success' && <Message>You are in! 🎉</Message>}
+
+            <input ref={node => (email = node)} type="email" placeholder="Your email" />
+            <button type="button" onClick={submit}>
+                Submit
+            </button>
+        </>
+    );
+};
+
+const StyledMailWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    > div {
+        flex-basis: 100%;
+        order: 3;
+        margin-top: 5px;
+    }
+`;
+
+const Message = styled.div`
+    color: white;
+
+    a {
+        color: ${theme.colors.primary};
+    }
+`;
+
 class MailList extends React.Component {
     render() {
         return (
             <StyledMailList>
                 <h2>Get an update if the new curated list is online!</h2>
-                <MailchimpSubscribe url={url} />
+                <StyledMailWrapper>
+                    <MailchimpSubscribe
+                        url={url}
+                        render={({ subscribe, status, message }) => (
+                            <CustomForm
+                                status={status}
+                                message={message}
+                                onValidated={formData => subscribe(formData)}
+                            />
+                        )}
+                    />
+                </StyledMailWrapper>
             </StyledMailList>
         );
     }

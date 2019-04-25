@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import logo from '../../assets/images/rewind-logo.png';
+import theme from '../../assets/theme';
 
 const StyledHeader = styled.header`
-    background-image: linear-gradient(29deg, #071fc8, #0017b6);
+    background-color: ${theme.colors.blue};
+    background-image: ${theme.gradient.blue};
     margin-bottom: 1.45rem;
     padding-bottom: 5rem;
 

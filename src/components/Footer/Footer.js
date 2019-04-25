@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import theme from '../../assets/theme';
+
 const StyledFooter = styled.footer`
-    background-color: #071fc8;
-    background-image: linear-gradient(29deg, #071fc8, #0017b6);
+    background-color: ${theme.colors.blue};
+    background-image: ${theme.gradient.blue};
     color: white;
 
     div {
@@ -19,10 +22,21 @@ const StyledFooter = styled.footer`
     }
 `;
 
-const Footer = props => (
-    <StyledFooter>
-        <div>{props.children}</div>
-    </StyledFooter>
-);
+const Footer = props => {
+    const { children } = props;
+    return (
+        <StyledFooter>
+            <div>{children}</div>
+        </StyledFooter>
+    );
+};
+
+Footer.propTypes = {
+    children: PropTypes.node
+};
+
+// Footer.defaultProps = {
+//     siteTitle: ``
+// };
 
 export default Footer;

@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import theme from '../../assets/theme';
+
 const StyledItem = styled.div`
     border-radius: 4px;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
-    background-color: #fff;
+    box-shadow: 0 4px 16px 0 ${theme.colors.shadow};
+    background-color: white;
     margin-bottom: 1rem;
 
     @media screen and (min-width: 768px) {
