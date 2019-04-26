@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Layout.css';
 
 const StyledWrapper = styled.div`
@@ -17,7 +18,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledMain = styled.main`
-    margin-top: calc(-6rem - 5px);
+    margin-top: calc(-7rem - 1px);
 
     @media screen and (min-width: 768px) {
         display: flex;
@@ -41,12 +42,19 @@ const Layout = ({ children }) => (
                 <Header siteTitle={data.site.siteMetadata.title} />
                 <StyledWrapper>
                     <StyledMain>{children}</StyledMain>
-                    <footer>
-                        © {new Date().getFullYear()}, Built with
-                        {` `}
-                        <a href="https://www.gatsbyjs.org">Gatsby</a>
-                    </footer>
                 </StyledWrapper>
+                <Footer>
+                    © {new Date().getFullYear()}, Built by
+                    {` `}
+                    <a
+                        href="https://github.com/paulbremer/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        paulbremer
+                    </a>{' '}
+                    🔥
+                </Footer>
             </>
         )}
     />

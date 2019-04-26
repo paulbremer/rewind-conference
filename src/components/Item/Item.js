@@ -2,21 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import theme from '../../assets/theme';
+
 const StyledItem = styled.div`
     border-radius: 4px;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
-    background-color: #fff;
+    box-shadow: 0 4px 16px 0 ${theme.colors.shadow};
+    background-color: white;
     margin-bottom: 1rem;
 
     @media screen and (min-width: 768px) {
         flex-basis: calc(50% - 1rem);
         margin-bottom: 2rem;
 
-        &:nth-child(odd) {
+        &:nth-child(1),
+        &:nth-child(3),
+        &:nth-child(2n + 6) {
             margin-right: 1rem;
         }
 
-        &:nth-child(even) {
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(2n + 5) {
             margin-left: 1rem;
         }
     }
@@ -38,7 +44,7 @@ const StyledTitle = styled.div`
     h3 {
         font-size: 1rem;
         font-weight: 400;
-        color: rgba(66, 80, 92, 0.6)
+        color: rgba(66, 80, 92, 0.6);
     }
 `;
 

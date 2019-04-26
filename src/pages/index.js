@@ -4,19 +4,21 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout/Layout';
 import Item from '../components/Item/Item';
+import MailList from '../components/MailList/MailList';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
-    const talks = data;
-    console.log(talks);
+    const talksData = data;
+    const { talks } = talksData.rwconf.lineUps[0];
+    talks.splice(4, 0, { id: 'cMail', maillist: true });
 
     return (
         <Layout>
             <SEO title="Rewind Conference" keywords={[`gatsby`, `application`, `react`]} />
 
-            {talks.rwconf.lineUps[0].talks.map(talk => (
-                <Item key={talk.id} talk={talk} />
-            ))}
+            {talks.map(talk =>
+                talk.maillist ? <MailList key={talk.id} /> : <Item key={talk.id} talk={talk} />
+            )}
         </Layout>
     );
 };
