@@ -65,7 +65,7 @@ const StyledTags = styled.div`
 
 const StyledIframe = styled.iframe`
     width: 100%;
-    min-height: 200px;
+    min-height: 250px;
 `;
 
 const StyledContent = styled.div`

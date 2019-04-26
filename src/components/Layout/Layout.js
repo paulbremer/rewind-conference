@@ -44,16 +44,22 @@ const Layout = ({ children }) => (
                     <StyledMain>{children}</StyledMain>
                 </StyledWrapper>
                 <Footer>
-                    © {new Date().getFullYear()}, Built by
+                    © {new Date().getFullYear()} Rewind Conference <br />
+                    Built by
                     {` `}
-                    <a
-                        href="https://github.com/paulbremer/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        paulbremer
+                    <a href="https://paulbremer.nl" rel="noopener noreferrer" target="_blank">
+                        Paul Bremer
                     </a>{' '}
-                    🔥
+                    &amp;{' '}
+                    <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
+                        Michael Koek
+                    </a>{' '}
+                    🔥 <br />
+                    Designed by{' '}
+                    <a href="www.rielledegroot.com" rel="noopener noreferrer" target="_blank">
+                        Riëlle de Groot
+                    </a>{' '}
+                    💅
                 </Footer>
             </>
         )}
