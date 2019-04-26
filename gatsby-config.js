@@ -43,7 +43,7 @@ module.exports = {
                 url: 'https://api-euwest.graphcms.com/v1/cjs7amwck74sf01g7wl43slkx/master',
                 typeName: 'GRAPHCMS',
                 fieldName: 'rwconf',
-                refetchInterval: 600 // refetch data every 10 minutes, no need to deploy again after cms changes
+                refetchInterval: 60 // refetch data every minute, no need to deploy again after cms changes
             }
         }
     ]
