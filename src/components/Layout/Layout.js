@@ -47,7 +47,7 @@ const Layout = ({ children }) => (
                     © {new Date().getFullYear()} Rewind Conference <br />
                     Built by
                     {` `}
-                    <a href="https://paulbremer.nl" rel="noopener noreferrer" target="_blank">
+                    <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
                         Paul Bremer
                     </a>{' '}
                     &amp;{' '}
@@ -56,7 +56,7 @@ const Layout = ({ children }) => (
                     </a>{' '}
                     🔥 <br />
                     Designed by{' '}
-                    <a href="www.rielledegroot.com" rel="noopener noreferrer" target="_blank">
+                    <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
                         Riëlle de Groot
                     </a>{' '}
                     💅
