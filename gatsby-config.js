@@ -32,6 +32,12 @@ module.exports = {
         // To learn more, visit: https://gatsby.app/offline
         // 'gatsby-plugin-offline',
         {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: 'UA-139169470-1'
+            }
+        },
+        {
             resolve: `gatsby-source-graphql`,
             options: {
                 url: 'https://api-euwest.graphcms.com/v1/cjs7amwck74sf01g7wl43slkx/master',
