@@ -55,7 +55,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                             },
                             {
                                 property: `og:image`,
-                                content: `https://rewindconference.com/assets/images/social_image.png`
+                                content: `https://rewindconference.com/social_image.png`
                             },
                             {
                                 name: `twitter:card`,
