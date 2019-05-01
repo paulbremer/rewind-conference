@@ -11,7 +11,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
+    const currentMonth = currentDate.getMonth();
 
     deletePage(page);
 
@@ -19,7 +19,7 @@ exports.onCreatePage = ({ page, actions }) => {
         ...page,
         context: {
             currentYear,
-            currentMonth,
-        },
+            currentMonth
+        }
     });
 };
