@@ -14,7 +14,10 @@ const IndexPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO title="Rewind Conference" keywords={[`gatsby`, `application`, `react`]} />
+            <SEO
+                title="Rewind Conference"
+                keywords={[`javascript`, `conference`, `talks`, `react`]}
+            />
 
             {talks.map(talk =>
                 talk.maillist ? <MailList key={talk.id} /> : <Item key={talk.id} talk={talk} />
