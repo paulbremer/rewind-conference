@@ -10,7 +10,7 @@ import SEO from '../components/seo';
 const IndexPage = ({ data }) => {
     const talksData = data;
     const { talks } = talksData.rwconf.lineUps[0];
-    talks.splice(4, 0, { id: 'cMail', maillist: true });
+    if (talks.length === 10) talks.splice(4, 0, { id: 'cMail', maillist: true });
 
     return (
         <Layout>
