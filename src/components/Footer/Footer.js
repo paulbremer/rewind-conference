@@ -23,25 +23,28 @@ const StyledFooter = styled.footer`
     }
 `;
 
+const FooterItem = styled.span`
+    display: block;
+`;
+
 const Footer = () => (
     <StyledFooter>
         <section>
-            &copy; {new Date().getFullYear()} <Link to="/" title="a curated list of JavaScript talks">Rewind Conference</Link><br />
-                Built by
-                {` `}
-                <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
+            <FooterItem>
+                &copy; {new Date().getFullYear()} <Link to="/" title="a curated list of JavaScript talks">Rewind Conference</Link>
+            </FooterItem>
+
+            <FooterItem>
+                Built by <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
                     Paul Bremer
-                </a>{' '}
-                &amp;{' '}
-                <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
+                </a> &amp; <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
                     Michael Koek
-                </a>{' '}
-                🔥 <br />
-                Designed by{' '}
-                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
-                    Riëlle de Groot
-                </a>{' '}
-                💅
+                </a> 🔥
+            </FooterItem>
+
+            <FooterItem>
+                Designed by <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank"> Riëlle de Groot</a> 💅
+            </FooterItem>
         </section>
     </StyledFooter>
 );

@@ -8,7 +8,6 @@ import { Reset, Theme } from '../../helpers/globalStyles';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-
 const Container = styled.div`
     margin: 0 auto;
     max-width: 1140px;

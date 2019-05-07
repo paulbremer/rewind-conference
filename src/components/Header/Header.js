@@ -7,58 +7,62 @@ import logo from '../../assets/images/rewind-logo.png';
 import theme from '../../assets/theme';
 
 const StyledHeader = styled.header`
-    background-color: ${theme.colors.blue};
-    background-image: ${theme.gradient.blue};
-    margin-bottom: 1.45rem;
-    padding-bottom: 5rem;
+    background-color: ${({ theme }) => theme.colors.blue};
+    background-image: ${({ theme }) => theme.gradient.blue};
+    display: flex;
+    height: 250px;
 
-    div {
-        margin: 0 auto;
-        max-width: 1140px;
-        padding: 2rem 2rem 1.5rem;
+    @media screen and (min-width: 768px) {
+        height: 350px;
     }
 
     h1 {
-        margin: 0;
-
-        @media screen and (min-width: 768px) {
-            margin-top: 2rem;
-        }
+        font-size: 0;
+        color: white;
     }
 
     img {
         max-width: 200px;
     }
+`;
 
-    h2 {
-        color: #fff;
-        font-size: 1.2rem;
-        margin: 1.5rem 0;
+const Container = styled.section`
+    margin: 0 auto;
+    max-width: 1140px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 ${({ theme }) => theme.sidePadding};
+`;
 
-        @media screen and (min-width: 768px) {
-            margin-bottom: 3rem;
-        }
-    }
+const Tagline = styled.h2`
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
 `;
 
 const StyledLink = styled(Link)`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
     text-decoration: none;
+    display: inline-block;
 `;
 
 const Header = ({ siteTitle }) => (
     <StyledHeader>
-        <div>
+        <Container>
             <h1>
-                <StyledLink to="/">
+                <StyledLink to="/" title="Rewind Conference Logo">
                     <img src={logo} alt={siteTitle} />
+                    Rewind Conference
                 </StyledLink>
             </h1>
-            <h2>
+            <Tagline>
                 Get the best of conferences with Rewind. Every month a new curated list of
                 JavaScript talks.
-            </h2>
-        </div>
+            </Tagline>
+        </Container>
     </StyledHeader>
 );
 
