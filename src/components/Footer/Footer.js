@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import theme from '../../assets/theme';
 
@@ -9,11 +9,12 @@ const StyledFooter = styled.footer`
     background-image: ${theme.gradient.blue};
     color: white;
 
-    div {
+    section {
         margin: 0 auto;
         max-width: 1140px;
         padding: 2rem 2rem 1.5rem;
         text-align: center;
+        font-size: 0.75rem;
     }
 
     a {
@@ -22,21 +23,27 @@ const StyledFooter = styled.footer`
     }
 `;
 
-const Footer = props => {
-    const { children } = props;
-    return (
-        <StyledFooter>
-            <div>{children}</div>
-        </StyledFooter>
-    );
-};
-
-Footer.propTypes = {
-    children: PropTypes.node
-};
-
-// Footer.defaultProps = {
-//     siteTitle: ``
-// };
+const Footer = () => (
+    <StyledFooter>
+        <section>
+            &copy; {new Date().getFullYear()} <Link to="/" title="a curated list of JavaScript talks">Rewind Conference</Link><br />
+                Built by
+                {` `}
+                <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
+                    Paul Bremer
+                </a>{' '}
+                &amp;{' '}
+                <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
+                    Michael Koek
+                </a>{' '}
+                🔥 <br />
+                Designed by{' '}
+                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
+                    Riëlle de Groot
+                </a>{' '}
+                💅
+        </section>
+    </StyledFooter>
+);
 
 export default Footer;

@@ -1,13 +1,15 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import { Reset, Theme } from '../../helpers/globalStyles';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import './Layout.css';
 
-const StyledWrapper = styled.div`
+
+const Container = styled.div`
     margin: 0 auto;
     max-width: 1140px;
     padding: 0 1rem 1.5rem;
@@ -38,30 +40,16 @@ const Layout = ({ children }) => (
             }
         `}
         render={data => (
-            <>
-                <Header siteTitle={data.site.siteMetadata.title} />
-                <StyledWrapper>
-                    <StyledMain>{children}</StyledMain>
-                </StyledWrapper>
-                <Footer>
-                    © {new Date().getFullYear()} Rewind Conference <br />
-                    Built by
-                    {` `}
-                    <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
-                        Paul Bremer
-                    </a>{' '}
-                    &amp;{' '}
-                    <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
-                        Michael Koek
-                    </a>{' '}
-                    🔥 <br />
-                    Designed by{' '}
-                    <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
-                        Riëlle de Groot
-                    </a>{' '}
-                    💅
-                </Footer>
-            </>
+            <ThemeProvider theme={Theme}>
+                <React.Fragment>
+                    <Reset />
+                    <Header siteTitle={data.site.siteMetadata.title} />
+                    <Container>
+                        <StyledMain>{children}</StyledMain>
+                    </Container>
+                    <Footer />
+                </React.Fragment>
+            </ThemeProvider>
         )}
     />
 );
