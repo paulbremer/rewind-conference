@@ -7,18 +7,20 @@ const TalkItem = styled.article`
     box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
     background-color: ${({ theme }) => theme.colors.white};
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 
     @media screen and (min-width: 768px) {
         flex-basis: calc(50% - 1rem);
         margin-bottom: 2rem;
-
+        
         ${({ isSecond }) => isSecond && css`
             margin-right: 2rem;
         `}
     }
 `;
 
-const StyledHeader = styled.header`
+const Header = styled.header`
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -26,12 +28,12 @@ const StyledHeader = styled.header`
 `;
 
 const StyledTitle = styled.div`
-    h2 {
+    h1 {
         font-size: 1.2rem;
         margin-bottom: 0.25rem;
     }
 
-    h3 {
+    h2 {
         font-size: 1rem;
         font-weight: 400;
         color: rgba(66, 80, 92, 0.6);
@@ -62,6 +64,8 @@ const StyledContent = styled.div`
     padding: 1rem;
     line-height: 1.5;
     text-align: right;
+    background-color: ${({ theme }) => theme.colors.white};
+    flex-grow: 1;
 
     h2 {
         font-size: 18px;
@@ -85,10 +89,8 @@ const Button = styled.button`
     display: none;
     border: none;
     @supports (-webkit-line-clamp: 2) {
-        margin-top: 0.5rem;
         display: inline-block;
         text-align: right;
-        padding: 0.5rem;
         font-size: 14px;
         font-weight: 600;
         line-height: 1;
@@ -99,20 +101,26 @@ const Button = styled.button`
     }
 `;
 
+const Footer = styled.footer`
+    display: block;
+    text-align: right;
+    padding: 1rem;
+`;
+
 const Item = ({ talk, ...props }) => {
     const [expanded, setExpanded] = useState(false);
 
     return (
         <TalkItem {...props}>
-            <StyledHeader>
+            <Header>
                 <StyledTitle>
-                    <h2>{talk.speaker}</h2>
-                    <h3>{talk.conference}</h3>
+                    <h1>{talk.speaker}</h1>
+                    <h2>{talk.conference}</h2>
                 </StyledTitle>
                 <StyledTags>
                     <span>{talk.tags[0]}</span>
                 </StyledTags>
-            </StyledHeader>
+            </Header>
 
             <StyledIframe
                 title={talk.title}
@@ -124,16 +132,14 @@ const Item = ({ talk, ...props }) => {
 
             <StyledContent>
                 <h2>{talk.title}</h2>
-
                 <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
+            </StyledContent>
 
-                <Button
-                    tabindex="0"
-                    onClick={() => setExpanded({ expanded: !expanded })}
-                >
+            <Footer>
+                <Button tabindex="0" onClick={() => setExpanded(!expanded)}>
                     Read {expanded ? 'less' : 'more'}
                 </Button>
-            </StyledContent>
+            </Footer>
         </TalkItem>
     );
 };

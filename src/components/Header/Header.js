@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import logo from '../../assets/images/rewind-logo.png';
-import theme from '../../assets/theme';
 
 const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.blue};

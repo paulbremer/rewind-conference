@@ -8,13 +8,13 @@ import MailList from '../components/MailList/MailList';
 import SEO from '../components/seo';
 import NoTalksWarning from '../components/NoTalksWarning/NoTalksWarning';
 
-
 const IndexPage = ({ data }) => {
     const [talksList, setTalksList] = useState([]);
 
     useEffect(() => {
+        console.log(data);
         setTalksList(data.rwconf.lineUps);
-    }, [data.rwconf.lineUps]);
+    }, [talksList]);
 
     const displayTalks = (talk, index) => (
         <React.Fragment>
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
             {talksList.length ? (
                 talksList[0].talks.map(displayTalks)
             ) : (
-                <NoTalksWarning message="" />
+                <NoTalksWarning />
             )}
         </Layout>
     );
