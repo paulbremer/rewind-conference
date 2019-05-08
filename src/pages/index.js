@@ -13,28 +13,28 @@ const IndexPage = ({ data }) => {
     const [talksList, setTalksList] = useState([]);
 
     useEffect(() => {
-        console.log('mounting', data);
         setTalksList(data.rwconf.lineUps);
-    }, []);
+    }, [data.rwconf.lineUps]);
 
-    console.log(data);
-
-    // const talksData = data;
-    // const { talks } = talksData.rwconf.lineUps[0];
-    // talksList.splice(4, 0, { id: 'cMail', maillist: true });
+    const displayTalks = (talk, index) => (
+        <React.Fragment>
+            {index === 4 && <MailList />}
+            <Item key={talk.id} talk={talk} isSecond={index % 2 === 0} />
+        </React.Fragment>
+    );
 
     return (
         <Layout>
-            <SEO title="Rewind Conference" keywords={[`gatsby`, `application`, `react`]} />
-            {/* {talksList.length > 0 ?
+            <SEO
+                title="Rewind Conference"
+                keywords={[`javascript`, `conference`, `talks`, `react`]}
+            />
 
-                talksList.map(talk =>
-                    talk.maillist ? <MailList key={talk.id} /> : <Item key={talk.id} talk={talk} />
-                )
-                : <p>No talks found</p>
-            } */}
-
-            {talksList.length > 0 ? 'talks' : <NoTalksWarning message="" />}
+            {talksList.length ? (
+                talksList[0].talks.map(displayTalks)
+            ) : (
+                <NoTalksWarning message="" />
+            )}
         </Layout>
     );
 };

@@ -1,30 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import theme from '../../assets/theme';
-
-const StyledItem = styled.div`
+const TalkItem = styled.article`
     border-radius: 4px;
-    box-shadow: 0 4px 16px 0 ${theme.colors.shadow};
-    background-color: white;
+    box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
+    background-color: ${({ theme }) => theme.colors.white};
     margin-bottom: 1rem;
 
     @media screen and (min-width: 768px) {
         flex-basis: calc(50% - 1rem);
         margin-bottom: 2rem;
 
-        &:nth-child(1),
-        &:nth-child(3),
-        &:nth-child(2n + 6) {
-            margin-right: 1rem;
-        }
-
-        &:nth-child(2),
-        &:nth-child(4),
-        &:nth-child(2n + 5) {
-            margin-left: 1rem;
-        }
+        ${({ isSecond }) => isSecond && css`
+            margin-right: 2rem;
+        `}
     }
 `;
 
@@ -91,8 +81,9 @@ const StyledDescription = styled.p`
     }
 `;
 
-const StyledButton = styled.a`
+const Button = styled.button`
     display: none;
+    border: none;
     @supports (-webkit-line-clamp: 2) {
         margin-top: 0.5rem;
         display: inline-block;
@@ -102,57 +93,50 @@ const StyledButton = styled.a`
         font-weight: 600;
         line-height: 1;
         letter-spacing: 1.8px;
-        color: #eb2f5a;
+        color: ${({ theme }) => theme.colors.red};
         text-transform: uppercase;
         cursor: pointer;
     }
 `;
 
-class Item extends React.Component {
-    state = {
-        expanded: false
-    };
+const Item = ({ talk, ...props }) => {
+    const [expanded, setExpanded] = useState(false);
 
-    render() {
-        const { talk } = this.props;
-        const { expanded } = this.state;
+    return (
+        <TalkItem {...props}>
+            <StyledHeader>
+                <StyledTitle>
+                    <h2>{talk.speaker}</h2>
+                    <h3>{talk.conference}</h3>
+                </StyledTitle>
+                <StyledTags>
+                    <span>{talk.tags[0]}</span>
+                </StyledTags>
+            </StyledHeader>
 
-        return (
-            <StyledItem>
-                <StyledHeader>
-                    <StyledTitle>
-                        <h2>{talk.speaker}</h2>
-                        <h3>{talk.conference}</h3>
-                    </StyledTitle>
-                    <StyledTags>
-                        <span>{talk.tags[0]}</span>
-                    </StyledTags>
-                </StyledHeader>
+            <StyledIframe
+                title={talk.title}
+                src={`https://www.youtube.com/embed/${talk.youtubeId}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            />
 
-                <StyledIframe
-                    title={talk.title}
-                    src={`https://www.youtube.com/embed/${talk.youtubeId}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                />
+            <StyledContent>
+                <h2>{talk.title}</h2>
 
-                <StyledContent>
-                    <h2>{talk.title}</h2>
+                <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
 
-                    <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
-
-                    <StyledButton
-                        tabindex="0"
-                        onClick={() => this.setState({ expanded: !expanded })}
-                    >
-                        Read {expanded ? 'less' : 'more'}
-                    </StyledButton>
-                </StyledContent>
-            </StyledItem>
-        );
-    }
-}
+                <Button
+                    tabindex="0"
+                    onClick={() => setExpanded({ expanded: !expanded })}
+                >
+                    Read {expanded ? 'less' : 'more'}
+                </Button>
+            </StyledContent>
+        </TalkItem>
+    );
+};
 
 Item.propTypes = {
     talk: PropTypes.object.isRequired,

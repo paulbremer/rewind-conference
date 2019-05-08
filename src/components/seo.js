@@ -38,12 +38,24 @@ function SEO({ description, lang, meta, keywords, title }) {
                                 content: title
                             },
                             {
+                                property: `og:site_name`,
+                                content: title
+                            },
+                            {
+                                property: `og:url`,
+                                content: `https://rewindconference.com`
+                            },
+                            {
                                 property: `og:description`,
                                 content: metaDescription
                             },
                             {
                                 property: `og:type`,
                                 content: `website`
+                            },
+                            {
+                                property: `og:image`,
+                                content: `https://rewindconference.com/social_image.png`
                             },
                             {
                                 name: `twitter:card`,
