@@ -12,14 +12,13 @@ const IndexPage = ({ data }) => {
     const [talksList, setTalksList] = useState([]);
 
     useEffect(() => {
-        console.log(data);
         setTalksList(data.rwconf.lineUps);
     }, [talksList]);
 
     const displayTalks = (talk, index) => (
-        <React.Fragment>
+        <React.Fragment key={talk.id}>
             {index === 4 && <MailList />}
-            <Item key={talk.id} talk={talk} isSecond={index % 2 === 0} />
+            <Item talk={talk} isSecond={index % 2 === 0} />
         </React.Fragment>
     );
 
