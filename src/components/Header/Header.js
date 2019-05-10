@@ -8,6 +8,7 @@ import logo from '../../assets/images/rewind-logo.png';
 const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.blue};
     background-image: ${({ theme }) => theme.gradient.blue};
+    padding: 0 ${({ theme }) => theme.sidePadding};
     display: flex;
     height: 250px;
 
@@ -33,7 +34,6 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 ${({ theme }) => theme.sidePadding};
 `;
 
 const Tagline = styled.h2`
@@ -48,19 +48,36 @@ const StyledLink = styled(Link)`
     display: inline-block;
 `;
 
-const Header = ({ siteTitle }) => (
+const InnerContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const TitelItems = styled.div`
+    flex: 1;
+`;
+
+const Header = ({ siteTitle, darkmodeToggle }) => (
     <StyledHeader>
         <Container>
-            <h1>
-                <StyledLink to="/" title="Rewind Conference Logo">
-                    <img src={logo} alt={siteTitle} />
-                    Rewind Conference
-                </StyledLink>
-            </h1>
-            <Tagline>
-                Get the best of conferences with Rewind. Every month a new curated list of
-                JavaScript talks.
-            </Tagline>
+            <InnerContainer>
+                <TitelItems>
+                    <h1>
+                        <StyledLink to="/" title="Rewind Conference Logo">
+                            <img src={logo} alt={siteTitle} />
+                            Rewind Conference
+                        </StyledLink>
+                    </h1>
+                    <Tagline>
+                        Get the best of conferences with Rewind. Every month a new curated list of
+                        JavaScript talks.
+                    </Tagline>
+                </TitelItems>
+                
+                <div>
+                    { darkmodeToggle }
+                </div>
+            </InnerContainer>
         </Container>
     </StyledHeader>
 );

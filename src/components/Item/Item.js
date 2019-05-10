@@ -88,6 +88,7 @@ const StyledDescription = styled.p`
 const Button = styled.button`
     display: none;
     border: none;
+    background-color: transparent;
     @supports (-webkit-line-clamp: 2) {
         display: inline-block;
         text-align: right;

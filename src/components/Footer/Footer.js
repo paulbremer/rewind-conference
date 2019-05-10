@@ -2,12 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import theme from '../../assets/theme';
-
 const StyledFooter = styled.footer`
-    background-color: ${theme.colors.blue};
-    background-image: ${theme.gradient.blue};
-    color: white;
+    background-color: ${({ theme }) => theme.colors.blue};
+    background-image: ${({ theme }) => theme.gradient.blue};
+    color: ${({ theme }) => theme.colors.white};
 
     section {
         margin: 0 auto;
@@ -18,33 +16,30 @@ const StyledFooter = styled.footer`
     }
 
     a {
-        color: white;
+        color: ${({ theme }) => theme.colors.white};;
         text-decoration: underline;
     }
 `;
 
-const FooterItem = styled.span`
-    display: block;
-`;
 
 const Footer = () => (
     <StyledFooter>
         <section>
-            <FooterItem>
+            <div>
                 &copy; {new Date().getFullYear()} <Link to="/" title="a curated list of JavaScript talks">Rewind Conference</Link>
-            </FooterItem>
+            </div>
 
-            <FooterItem>
+            <div>
                 Built by <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
                     Paul Bremer
                 </a> &amp; <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
                     Michael Koek
                 </a> 🔥
-            </FooterItem>
+            </div>
 
-            <FooterItem>
+            <div>
                 Designed by <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank"> Riëlle de Groot</a> 💅
-            </FooterItem>
+            </div>
         </section>
     </StyledFooter>
 );
