@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { rgba } from 'polished';
-
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
+// import { rgba } from 'polished';
 
-import theme from '../../assets/theme';
+import { hexToRgba } from '../../helpers/helpers';
 
 const url =
     'https://gmail.us20.list-manage.com/subscribe/post?u=abb450c84ce668adeafd887be&id=2d1223e6f0';
@@ -12,9 +11,9 @@ const url =
 const StyledMailList = styled.div`
     flex-basis: 100%;
     border-radius: 4px;
-    box-shadow: 0 4px 16px 0 ${theme.colors.shadow};
-    background-color: ${theme.colors.blue};
-    background-image: ${theme.gradient.blue};
+    box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
+    background-color: ${({ theme }) => theme.colors.blue};
+    background-image: ${({ theme }) => theme.gradient.blue};
     margin-bottom: 1rem;
     padding: 2rem 2rem 2.5rem;
     text-align: center;
@@ -24,7 +23,7 @@ const StyledMailList = styled.div`
     }
 
     h2 {
-        color: white;
+        color: ${({ theme }) => theme.colors.white};;
         font-size: 0.9rem;
         margin: 0.5rem 0 1rem;
 
@@ -45,9 +44,10 @@ const StyledMailList = styled.div`
         padding: 0.25rem;
         border: 0;
         width: 70%;
+        background-color: ${({ theme }) => theme.colors.white};
 
         &:focus {
-            outline-color: ${theme.colors.primary};
+            outline-color: ${({ theme }) => theme.colors.primary};
         }
 
         @media screen and (min-width: 420px) {
@@ -61,7 +61,7 @@ const StyledMailList = styled.div`
     }
 
     button {
-        background-color: ${theme.colors.primary};
+        background-color: ${({ theme }) => theme.colors.primary};
         color: white;
         border: 0;
         padding: 0.6rem;
@@ -69,16 +69,36 @@ const StyledMailList = styled.div`
         cursor: pointer;
 
         &:focus {
-            background-color: ${rgba(theme.colors.primary, 0.9)};
-            outline-color: ${theme.colors.primary};
+            background-color: ${hexToRgba(({ theme }) => theme.colors.primary, 0.9)};
+            outline-color: ${({ theme }) => theme.colors.primary};
         }
         &:hover {
-            background-color: ${rgba(theme.colors.primary, 0.9)};
+            background-color: ${hexToRgba(({ theme }) => theme.colors.primary, 0.9)};
         }
 
         @media screen and (min-width: 768px) {
             padding: 0.64rem;
         }
+    }
+`;
+
+const StyledMailWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    > div {
+        flex-basis: 100%;
+        order: 3;
+        margin-top: 5px;
+    }
+`;
+
+const Message = styled.div`
+    color: white;
+
+    a {
+        color: ${({ theme }) => theme.colors.primary};
     }
 `;
 
@@ -105,46 +125,23 @@ const CustomForm = ({ status, message, onValidated }) => {
     );
 };
 
-const StyledMailWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    > div {
-        flex-basis: 100%;
-        order: 3;
-        margin-top: 5px;
-    }
-`;
-
-const Message = styled.div`
-    color: white;
-
-    a {
-        color: ${theme.colors.primary};
-    }
-`;
-
-class MailList extends React.Component {
-    render() {
-        return (
-            <StyledMailList>
-                <h2>Get an update if the new curated list is online!</h2>
-                <StyledMailWrapper>
-                    <MailchimpSubscribe
-                        url={url}
-                        render={({ subscribe, status, message }) => (
-                            <CustomForm
-                                status={status}
-                                message={message}
-                                onValidated={formData => subscribe(formData)}
-                            />
-                        )}
+const MailList = () => (
+    <StyledMailList>
+        <h2>Get an update if the new curated list is online!</h2>
+        <StyledMailWrapper>
+            <MailchimpSubscribe
+                url={url}
+                render={({ subscribe, status, message }) => (
+                    <CustomForm
+                        status={status}
+                        message={message}
+                        onValidated={formData => subscribe(formData)}
                     />
-                </StyledMailWrapper>
-            </StyledMailList>
-        );
-    }
-}
+                )}
+            />
+        </StyledMailWrapper>
+    </StyledMailList>
+);
+
 
 export default MailList;
