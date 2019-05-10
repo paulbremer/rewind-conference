@@ -23,7 +23,7 @@ const StyledMailList = styled.div`
     }
 
     h2 {
-        color: ${({ theme }) => theme.colors.white};;
+        color: ${({ theme }) => theme.colors.white};
         font-size: 0.9rem;
         margin: 0.5rem 0 1rem;
 

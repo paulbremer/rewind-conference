@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
     }
 
     a {
-        color: ${({ theme }) => theme.colors.white};;
+        color: ${({ theme }) => theme.colors.white};
         text-decoration: underline;
     }
 `;
