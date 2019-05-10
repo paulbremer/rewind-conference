@@ -19,9 +19,8 @@ const Container = styled.div`
 `;
 
 const StyledMain = styled.main`
-    margin-top: calc(-4.8rem - 1px);
-
     @media screen and (min-width: 768px) {
+        margin-top: calc(-4.8rem - 1px);
         display: flex;
         flex-wrap: wrap;
     }
