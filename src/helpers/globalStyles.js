@@ -33,12 +33,6 @@ const reset = css`
         box-sizing: border-box;
     }
 
-    body {
-        background-color: #f2f5f8;
-        background-image: url(${GeometryPattern});
-        color: #42505c;
-    }
-
     ol,
     ul {
         list-style: none;
@@ -56,30 +50,44 @@ const reset = css`
     }
 `;
 
-const Theme = {
+const cosmetics = {
     sidePadding: '2rem',
+    breakpoint: {
+        sm: 'screen and (min-width: 768px)',
+    },
+    bgPattern: `url(${GeometryPattern})`,
+}
+
+const Theme = {
+    ...cosmetics,
     colors: {
+        dark: '#42505c',
+        light: '#f2f5f8',
         white: 'white',
-        primary: 'rgb(235, 47, 90)',
-        shadow: 'rgba(0, 0, 0, 0.06)',
-        blue: 'rgb(7, 31, 200)',
+        primary: '#eb2f5a',
+        shadow: '#00000060',
+        blue: '#071fc8',
         red: '#eb2f5a',
     },
     gradient: {
         blue: 'linear-gradient(29deg, #071fc8, #0017b6)',
     },
-    breakpoint: {
-        sm: 'screen and (min-width: 768px)',
-    }
 };
 
 const DarkTheme = {
+    ...cosmetics,
     colors: {
-        white: 'rgb(216, 216, 216)',
+        dark: '#42505c',
+        light: '#1b2938',
+        white: '#d8d8d8',
+        primary: '#941935',
+        shadow: '#00000060',
+        blue: '#1b214e',
+        red: '#eb2f5a',
     },
     gradient: {
-        blue: 'linear-gradient(29deg, #1b214e, #0017b6)',
-    }
+        blue: 'linear-gradient(29deg, #1b214e, #112192)',
+    },
 };
 
 const Reset = createGlobalStyle`${reset}`;
