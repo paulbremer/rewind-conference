@@ -131,7 +131,7 @@ class Item extends React.Component {
 
                 <StyledIframe
                     title={talk.title}
-                    src={`https://www.youtube.com/embed/${talk.youtubeId}`}
+                    src={`https://www.youtube.com/embed/${talk.youtubeId}?origin=https://rewindconference.com`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
