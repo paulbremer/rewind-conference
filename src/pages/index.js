@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
 
     useEffect(() => {
         setTalksList(data.rwconf.lineUps);
-    }, [talksList]);
+    }, [data.rwconf.lineUps, talksList]);
 
     const displayTalks = (talk, index) => (
         <React.Fragment key={talk.id}>
@@ -29,11 +29,7 @@ const IndexPage = ({ data }) => {
                 keywords={[`javascript`, `conference`, `talks`, `react`]}
             />
 
-            {talksList.length ? (
-                talksList[0].talks.map(displayTalks)
-            ) : (
-                <NoTalksWarning />
-            )}
+            {talksList.length ? talksList[0].talks.map(displayTalks) : <NoTalksWarning />}
         </Layout>
     );
 };
