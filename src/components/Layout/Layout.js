@@ -28,7 +28,7 @@ const StyledMain = styled.main`
 
 const Background = styled.div`
     background-color: ${({ theme }) => theme.colors.light};
-    background-image: ${({ theme }) => theme.bgPattern };
+    background-image: ${({ theme }) => theme.bgPattern};
     color: ${({ theme }) => theme.colors.dark};
 `;
 
@@ -39,21 +39,18 @@ const Layout = ({ children }) => {
         localStorage.setItem('dark', JSON.stringify(darkMode));
     }, [darkMode]);
 
-
     useEffect(() => {
         const isReturningUser = 'dark' in localStorage;
         const savedMode = JSON.parse(localStorage.getItem('dark'));
-        const typeScheme = isReturningUser ? savedMode : getPrefColorScheme();
+        const typeScheme = isReturningUser ? savedMode : 'getPrefColorScheme()';
 
-        console.log('setting init', typeScheme);
         setDarkmode(typeScheme);
     }, []);
 
-
-    const getPrefColorScheme = () => {
-        if (!window.matchMedia) return;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
+    // const getPrefColorScheme = () => {
+    //     if (!window.matchMedia) return;
+    //     return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // }
 
     return (
         <StaticQuery
@@ -72,9 +69,14 @@ const Layout = ({ children }) => {
                         <Reset />
                         <Header 
                             siteTitle={data.site.siteMetadata.title}
-                            darkmodeToggle={<Toggle isActive={darkMode} onChange={() => setDarkmode(prevMode => !prevMode)} />}
+                            darkmodeToggle={
+                                <Toggle
+                                    isActive={darkMode}
+                                    onChange={() => setDarkmode(prevMode => !prevMode)} 
+                                />
+                            }
                         />
-                        
+
                         <Container>
                             <StyledMain>{children}</StyledMain>
                         </Container>
@@ -88,7 +90,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 };
 
 export default Layout;

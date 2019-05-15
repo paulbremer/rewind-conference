@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
-// import { rgba } from 'polished';
 
 import { hexToRgba } from '../../helpers/helpers';
 
@@ -62,7 +62,7 @@ const StyledMailList = styled.div`
 
     button {
         background-color: ${({ theme }) => theme.colors.primary};
-        color: white;
+        color: ${({ theme }) => theme.colors.white};
         border: 0;
         padding: 0.6rem;
         vertical-align: top;
@@ -102,13 +102,13 @@ const Message = styled.div`
     }
 `;
 
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status = false, message = '', onValidated = () => {} }) => {
     let email;
     const submit = () =>
         email &&
         email.value.indexOf('@') > -1 &&
         onValidated({
-            EMAIL: email.value
+            EMAIL: email.value,
         });
 
     return (
@@ -143,5 +143,10 @@ const MailList = () => (
     </StyledMailList>
 );
 
+CustomForm.propTypes = {
+    status: PropTypes.string,
+    message: PropTypes.string,
+    onValidated: PropTypes.func,
+};
 
 export default MailList;

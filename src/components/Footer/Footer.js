@@ -21,24 +21,33 @@ const StyledFooter = styled.footer`
     }
 `;
 
-
 const Footer = () => (
     <StyledFooter>
         <section>
             <div>
-                &copy; {new Date().getFullYear()} <Link to="/" title="a curated list of JavaScript talks">Rewind Conference</Link>
+                &copy; {new Date().getFullYear()}{' '}
+                <Link to="/" title="a curated list of JavaScript talks">
+                    Rewind Conference
+                </Link>
             </div>
 
             <div>
-                Built by <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
+                Built by{' '}
+                <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
                     Paul Bremer
-                </a> &amp; <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
+                </a>
+                &amp;{' '}
+                <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
                     Michael Koek
-                </a> 🔥
+                </a>{' '}
+                🔥
             </div>
 
             <div>
-                Designed by <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank"> Riëlle de Groot</a> 💅
+                Designed by{' '}
+                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank"> 
+                    Riëlle de Groot
+                </a> 💅
             </div>
         </section>
     </StyledFooter>

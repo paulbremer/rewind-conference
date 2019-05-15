@@ -29,11 +29,7 @@ const IndexPage = ({ data }) => {
                 keywords={[`javascript`, `conference`, `talks`, `react`]}
             />
 
-            {talksList.length ? (
-                talksList[0].talks.map(displayTalks)
-            ) : (
-                <NoTalksWarning />
-            )}
+            {talksList.length ? talksList[0].talks.map(displayTalks) : <NoTalksWarning />}
         </Layout>
     );
 };
@@ -61,7 +57,7 @@ export const query = graphql`
 `;
 
 IndexPage.propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
 };
 
 export default IndexPage;

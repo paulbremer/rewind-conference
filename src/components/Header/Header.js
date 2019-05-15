@@ -73,21 +73,19 @@ const Header = ({ siteTitle, darkmodeToggle }) => (
                         JavaScript talks.
                     </Tagline>
                 </TitelItems>
-                
-                <div>
-                    { darkmodeToggle }
-                </div>
+                <div>{darkmodeToggle}</div>
             </InnerContainer>
         </Container>
     </StyledHeader>
 );
 
 Header.propTypes = {
-    siteTitle: PropTypes.string
+    siteTitle: PropTypes.string,
+    darkmodeToggle: PropTypes.element,
 };
 
 Header.defaultProps = {
-    siteTitle: ``
+    siteTitle: ``,
 };
 
 export default Header;

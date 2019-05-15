@@ -13,10 +13,11 @@ const TalkItem = styled.article`
     @media screen and (min-width: 768px) {
         flex-basis: calc(50% - 1rem);
         margin-bottom: 2rem;
-        
-        ${({ isSecond }) => isSecond && css`
-            margin-right: 2rem;
-        `}
+        ${({ isSecond }) =>
+            isSecond &&
+            css`
+                margin-right: 2rem;
+            `}
     }
 `;
 
@@ -137,7 +138,11 @@ const Item = ({ talk, ...props }) => {
             </StyledContent>
 
             <Footer>
-                <Button tabindex="0" onClick={() => setExpanded(!expanded)}>
+                <Button
+                    type="button"
+                    tabindex="0"
+                    onClick={() => setExpanded(prevMode => !prevMode)}
+                >
                     Read {expanded ? 'less' : 'more'}
                 </Button>
             </Footer>
@@ -147,7 +152,7 @@ const Item = ({ talk, ...props }) => {
 
 Item.propTypes = {
     talk: PropTypes.object.isRequired,
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
 };
 
 export default Item;
