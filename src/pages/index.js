@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
 
     useEffect(() => {
         setTalksList(data.rwconf.lineUps);
-    }, [talksList]);
+    }, [data.rwconf.lineUps, talksList]);
 
     const displayTalks = (talk, index) => (
         <React.Fragment key={talk.id}>
