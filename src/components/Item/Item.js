@@ -31,7 +31,7 @@ const Header = styled.header`
 const StyledTitle = styled.div`
     h1 {
         font-size: 1.2rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
     }
 
     h2 {

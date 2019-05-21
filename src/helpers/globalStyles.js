@@ -7,7 +7,8 @@ const reset = css`
     html,
     body {
         font-family: 'Noto Sans', 'Helvetica', sans-serif;
-        font-size: 15px;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     html,
