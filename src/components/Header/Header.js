@@ -10,11 +10,7 @@ const StyledHeader = styled.header`
     background-image: ${({ theme }) => theme.gradient.blue};
     padding: 0 ${({ theme }) => theme.sidePadding};
     display: flex;
-    height: 250px;
-
-    @media screen and (min-width: 768px) {
-        height: 350px;
-    }
+    height: 350px;
 
     h1 {
         font-size: 0;
