@@ -38,6 +38,13 @@ module.exports = {
             }
         },
         {
+            resolve: `gatsby-plugin-google-tagmanager`,
+            options: {
+                id: 'GTM-WZDD4GF',
+                dataLayerName: 'dataLayer'
+            }
+        },
+        {
             resolve: `gatsby-source-graphql`,
             options: {
                 url: 'https://api-euwest.graphcms.com/v1/cjs7amwck74sf01g7wl43slkx/master',
