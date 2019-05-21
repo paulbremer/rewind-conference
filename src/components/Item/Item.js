@@ -32,6 +32,7 @@ const StyledTitle = styled.div`
     h1 {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
+        font-weight: 500;
     }
 
     h2 {
@@ -76,7 +77,7 @@ const ItemContent = styled.div`
     box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
 
     h2 {
-        font-size: 18px;
+        font-size: 1.06rem;
         margin-bottom: 1rem;
         text-align: left;
         min-height: 54px;
