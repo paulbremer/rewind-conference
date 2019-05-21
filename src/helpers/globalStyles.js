@@ -62,12 +62,6 @@ const reset = css`
         box-sizing: border-box;
     }
 
-    *,
-    *:before,
-    *:after {
-        box-sizing: border-box;
-    }
-
     ol,
     ul {
         list-style: none;
@@ -85,7 +79,7 @@ const reset = css`
     }
 `;
 
-const cosmetics = {
+const GENERAL_THEME = {
     sidePadding: '2rem',
     breakpoint: {
         sm: 'screen and (min-width: 768px)'
@@ -94,7 +88,7 @@ const cosmetics = {
 };
 
 const Theme = {
-    ...cosmetics,
+    ...GENERAL_THEME,
     colors: {
         dark: '#42505c',
         light: '#f2f5f8',
@@ -110,7 +104,7 @@ const Theme = {
 };
 
 const DarkTheme = {
-    ...cosmetics,
+    ...GENERAL_THEME,
     colors: {
         dark: '#42505c',
         light: '#1b2938',
