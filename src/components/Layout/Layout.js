@@ -27,6 +27,7 @@ const StyledMain = styled.main`
 `;
 
 const Background = styled.div`
+    transition: background-color .25s ease-out;
     background-color: ${({ theme }) => theme.colors.light};
     background-image: ${({ theme }) => theme.bgPattern};
     color: ${({ theme }) => theme.colors.dark};
