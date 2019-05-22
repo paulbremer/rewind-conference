@@ -41,7 +41,7 @@ const StyledMailList = styled.div`
     input[type='email'] {
         font-family: 'Poppins', 'Noto Sans', 'Helvetica', sans-serif;
         font-size: 1rem;
-        padding: 0.25rem;
+        padding: 0.5rem;
         border: 0;
         width: 70%;
         background-color: ${({ theme }) => theme.colors.white};

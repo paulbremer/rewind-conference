@@ -19,14 +19,16 @@ const Container = styled.div`
 `;
 
 const StyledMain = styled.main`
+    margin-top: -5rem;
     @media screen and (min-width: 768px) {
-        margin-top: calc(-5rem - 10px);
+        margin-top: calc(-6rem + 2px);
         display: flex;
         flex-wrap: wrap;
     }
 `;
 
 const Background = styled.div`
+    transition: background-color 0.25s ease-out;
     background-color: ${({ theme }) => theme.colors.light};
     background-image: ${({ theme }) => theme.bgPattern};
     color: ${({ theme }) => theme.colors.dark};

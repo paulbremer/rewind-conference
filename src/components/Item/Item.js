@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const TalkItem = styled.article`
-    border-radius: 4px;
-    box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
-    background-color: ${({ theme }) => theme.colors.white};
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
@@ -22,16 +19,20 @@ const TalkItem = styled.article`
 `;
 
 const Header = styled.header`
+    background-color: ${({ theme }) => theme.colors.white};
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 `;
 
 const StyledTitle = styled.div`
     h1 {
         font-size: 1.2rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
     }
 
     h2 {
@@ -59,17 +60,24 @@ const StyledTags = styled.div`
 const StyledIframe = styled.iframe`
     width: 100%;
     min-height: 250px;
+    background-color: grey;
 `;
 
-const StyledContent = styled.div`
-    padding: 1rem;
+const ContenWrapper = styled.section`
     line-height: 1.5;
-    text-align: right;
-    background-color: ${({ theme }) => theme.colors.white};
     flex-grow: 1;
+`;
+
+const ItemContent = styled.div`
+    background-color: ${({ theme }) => theme.colors.white};
+    text-align: right;
+    padding: 1rem;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 16px 0 ${({ theme }) => theme.colors.shadow};
 
     h2 {
-        font-size: 18px;
+        font-size: 1.06rem;
         margin-bottom: 1rem;
         text-align: left;
         min-height: 54px;
@@ -132,20 +140,23 @@ const Item = ({ talk, ...props }) => {
                 allowFullScreen
             />
 
-            <StyledContent>
-                <h2>{talk.title}</h2>
-                <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
-            </StyledContent>
+            <ContenWrapper>
+                <ItemContent>
+                    <h2>{talk.title}</h2>
+                    <StyledDescription expanded={expanded}>{talk.description}</StyledDescription>
 
-            <Footer>
-                <Button
-                    type="button"
-                    tabindex="0"
-                    onClick={() => setExpanded(prevMode => !prevMode)}
-                >
-                    Read {expanded ? 'less' : 'more'}
-                </Button>
-            </Footer>
+                    <Footer>
+                        <Button
+                            type="button"
+                            tabindex="0"
+                            onClick={() => setExpanded(prevMode => !prevMode)}
+                        >
+                            Read {expanded ? 'less' : 'more'}
+                        </Button>
+                    </Footer>
+                </ItemContent>
+            </ContenWrapper>
+
         </TalkItem>
     );
 };
