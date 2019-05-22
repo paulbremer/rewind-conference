@@ -23,13 +23,16 @@ const StyledHeader = styled.header`
 
 const Container = styled.section`
     margin: 0 auto;
-    padding: 4rem 2rem 7rem;
     max-width: 1140px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 4rem 0 5rem;
+    @media screen and (min-width: 768px) {
+        padding: 4rem 2rem 7rem;
+    }
 `;
 
 const Tagline = styled.h2`
@@ -47,10 +50,20 @@ const StyledLink = styled(Link)`
 const InnerContainer = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
 `;
 
 const TitelItems = styled.div`
     flex: 1;
+`;
+
+const ToggleContainer = styled.div`
+    position: absolute;
+    top: 12px;
+    right: 0;
+    @media screen and (min-width: 768px) {
+        position: relative;
+    }
 `;
 
 const Header = ({ siteTitle, darkmodeToggle }) => (
@@ -69,7 +82,7 @@ const Header = ({ siteTitle, darkmodeToggle }) => (
                         JavaScript talks.
                     </Tagline>
                 </TitelItems>
-                <div>{darkmodeToggle}</div>
+                <ToggleContainer>{darkmodeToggle}</ToggleContainer>
             </InnerContainer>
         </Container>
     </StyledHeader>
