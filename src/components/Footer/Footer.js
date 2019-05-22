@@ -12,7 +12,6 @@ const StyledFooter = styled.footer`
         max-width: 1140px;
         padding: 2rem 2rem 1.5rem;
         text-align: center;
-        font-size: 0.75rem;
     }
 
     a {
@@ -24,18 +23,13 @@ const StyledFooter = styled.footer`
 const Footer = () => (
     <StyledFooter>
         <section>
-            <div>
-                &copy; {new Date().getFullYear()}{' '}
-                <Link to="/" title="a curated list of JavaScript talks">
-                    Rewind Conference
-                </Link>
-            </div>
+            <div>&copy; {new Date().getFullYear()} Rewind Conference</div>
 
             <div>
                 Built by{' '}
                 <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
                     Paul Bremer
-                </a>
+                </a>{' '}
                 &amp;{' '}
                 <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
                     Michael Koek
@@ -45,9 +39,10 @@ const Footer = () => (
 
             <div>
                 Designed by{' '}
-                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank"> 
+                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
                     Riëlle de Groot
-                </a> 💅
+                </a>{' '}
+                💅
             </div>
         </section>
     </StyledFooter>

@@ -20,7 +20,7 @@ const Container = styled.div`
 
 const StyledMain = styled.main`
     @media screen and (min-width: 768px) {
-        margin-top: calc(-4.8rem - 1px);
+        margin-top: calc(-5rem - 10px);
         display: flex;
         flex-wrap: wrap;
     }
@@ -64,15 +64,15 @@ const Layout = ({ children }) => {
                 }
             `}
             render={data => (
-                <ThemeProvider theme={darkMode ? DarkTheme : Theme }>
+                <ThemeProvider theme={darkMode ? DarkTheme : Theme}>
                     <Background className="bg-test">
                         <Reset />
-                        <Header 
+                        <Header
                             siteTitle={data.site.siteMetadata.title}
                             darkmodeToggle={
                                 <Toggle
                                     isActive={darkMode}
-                                    onChange={() => setDarkmode(prevMode => !prevMode)} 
+                                    onChange={() => setDarkmode(prevMode => !prevMode)}
                                 />
                             }
                         />
@@ -90,7 +90,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
 };
 
 export default Layout;

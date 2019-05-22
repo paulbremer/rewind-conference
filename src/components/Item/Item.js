@@ -152,7 +152,7 @@ const Item = ({ talk, ...props }) => {
 
 Item.propTypes = {
     talk: PropTypes.object.isRequired,
-    expanded: PropTypes.bool,
+    expanded: PropTypes.bool
 };
 
 export default Item;

@@ -6,8 +6,9 @@ const reset = css`
 
     html,
     body {
-        font-family: 'Noto Sans', 'Helvetica', sans-serif;
-        font-size: 15px;
+        font-family: 'Poppins', 'Noto Sans', 'Helvetica', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     html,
@@ -99,7 +100,7 @@ const Theme = {
         light: '#f2f5f8',
         white: 'white',
         primary: '#eb2f5a',
-        shadow: '#00000060',
+        shadow: '#0000000f',
         blue: '#071fc8',
         red: '#eb2f5a'
     },
@@ -115,7 +116,7 @@ const DarkTheme = {
         light: '#1b2938',
         white: '#d8d8d8',
         primary: '#941935',
-        shadow: '#00000060',
+        shadow: '#0000000f',
         blue: '#1b214e',
         red: '#eb2f5a'
     },

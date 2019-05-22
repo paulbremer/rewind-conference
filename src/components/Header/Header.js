@@ -10,11 +10,6 @@ const StyledHeader = styled.header`
     background-image: ${({ theme }) => theme.gradient.blue};
     padding: 0 ${({ theme }) => theme.sidePadding};
     display: flex;
-    height: 250px;
-
-    @media screen and (min-width: 768px) {
-        height: 350px;
-    }
 
     h1 {
         font-size: 0;
@@ -28,6 +23,7 @@ const StyledHeader = styled.header`
 
 const Container = styled.section`
     margin: 0 auto;
+    padding: 4rem 2rem 7rem;
     max-width: 1140px;
     width: 100%;
     height: 100%;
@@ -39,7 +35,7 @@ const Container = styled.section`
 const Tagline = styled.h2`
     color: ${({ theme }) => theme.colors.white};
     font-size: 1.2rem;
-    margin: 1.5rem 0;
+    margin: 2.25rem 0;
 `;
 
 const StyledLink = styled(Link)`
@@ -81,11 +77,11 @@ const Header = ({ siteTitle, darkmodeToggle }) => (
 
 Header.propTypes = {
     siteTitle: PropTypes.string,
-    darkmodeToggle: PropTypes.element,
+    darkmodeToggle: PropTypes.element
 };
 
 Header.defaultProps = {
-    siteTitle: ``,
+    siteTitle: ``
 };
 
 export default Header;
