@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
     useEffect(() => {
         const { talks } = data.rwconf.lineUps[0];
         setTalkData(talks);
-        if (talks.length === 10) talks.splice(4, 0, { id: 'cMail', maillist: true });
+        if (talks.length === 8) talks.splice(4, 0, { id: 'cMail', maillist: true });
     }, [data.rwconf.lineUps]);
 
     return (
