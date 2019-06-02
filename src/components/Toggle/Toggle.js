@@ -9,7 +9,7 @@ const TriggerBox = styled.label`
     transition: background-color 0.4s ease;
     display: block;
     width: 60px;
-    height: 35px;
+    height: 32px;
     border-radius: 2em;
     outline: 0;
     position: relative;
@@ -41,17 +41,15 @@ const Input = styled.input`
     }
 `;
 
-const Toggle = ({ isActive = false, ...props }) => {
-    return (
-        <React.Fragment>
-            <Input type="checkbox" id="theme-toggle" defaultChecked={isActive} {...props} />
-            <TriggerBox htmlFor="theme-toggle"></TriggerBox>
-        </React.Fragment>
-    );
-};
+const Toggle = ({ isActive = false, ...props }) => (
+    <React.Fragment>
+        <Input type="checkbox" id="theme-toggle" defaultChecked={isActive} {...props} />
+        <TriggerBox htmlFor="theme-toggle" />
+    </React.Fragment>
+);
 
 Toggle.propTypes = {
-    isActive: PropTypes.bool,
+    isActive: PropTypes.bool
 };
 
 export default Toggle;
