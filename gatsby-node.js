@@ -1,10 +1,35 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`);
 
-// You can delete this file if you're not using it
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions;
+
+    return graphql(
+        `
+            query getCurrentLineUp {
+                rwconf {
+                    lineUps {
+                        id
+                        year
+                        month
+                    }
+                }
+            }
+        `,
+        { limit: 1000 }
+    ).then(result => {
+        result.data.rwconf.lineUps.forEach(lineUp => {
+            createPage({
+                path: `${lineUp.year}/${lineUp.month}`,
+                component: path.resolve(`./src/templates/archive.js`),
+                context: {
+                    id: lineUp.id,
+                    year: lineUp.year,
+                    month: lineUp.month
+                }
+            });
+        });
+    });
+};
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
