@@ -156,7 +156,6 @@ const Item = ({ talk, ...props }) => {
                     </Footer>
                 </ItemContent>
             </ContenWrapper>
-
         </TalkItem>
     );
 };

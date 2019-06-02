@@ -41,7 +41,7 @@ export const query = graphql`
                 id
                 year
                 month
-                talks(where: { status: PUBLISHED }) {
+                talks(where: { status: PUBLISHED }, orderBy: createdAt_DESC) {
                     id
                     status
                     speaker
