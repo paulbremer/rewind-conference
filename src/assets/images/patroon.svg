@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="229px" height="217px" viewBox="0 0 229 217" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>patroon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="patroon" transform="translate(1.000000, 0.000000)">
+            <path d="M35.5,0 L35.5,6" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <polygon id="Rectangle" stroke="#E0E0E0" stroke-width="1.99998082" transform="translate(11.719536, 38.795582) rotate(-45.000000) translate(-11.719536, -38.795582) " points="7.91673753 34.9927831 15.5213864 34.9937314 15.5223347 42.5983803 7.91768578 42.597432"></polygon>
+            <path d="M0,76 L6,75" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <circle id="Oval" stroke="#E0E0E0" stroke-width="2" cx="74.5" cy="12.5" r="5.5"></circle>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="39.6 86 48 90.5714286 39 98"></polygon>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="132.117647 67 128 74.8 133.882353 82 138 73.6"></polygon>
+            <path d="M187,58 L189,69" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <path d="M123,24 L133,30" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="201 10 201 23 193 23"></polygon>
+            <polygon id="Path" fill="#E0E0E0" fill-rule="nonzero" points="217.714286 146 219.428571 146 218.285714 149.473684 220 149.473684 217.714286 157 218.285714 150.631579 216 150.631579"></polygon>
+            <path d="M213.449293,103 C212.06411,99.54404 213.991322,95.6978909 217.725294,94.4158413 C221.459267,93.1337916 225.614817,94.9175129 227,98.3734729" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <polygon id="Path" fill="#E0E0E0" fill-rule="nonzero" points="168 103 171 103 169.8 107"></polygon>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="166.8 140.2 172.8 139 177 143.2 174.6 149.8 169.2 151 165 146.2"></polygon>
+            <circle id="Oval" fill="#E0E0E0" fill-rule="nonzero" cx="83.5" cy="55.5" r="2.5"></circle>
+            <polygon id="Rectangle" fill="#E0E0E0" fill-rule="nonzero" transform="translate(97.994203, 108.497777) rotate(37.409640) translate(-97.994203, -108.497777) " points="95.6545307 106.158258 100.334439 106.157694 100.333876 110.837297 95.6539675 110.83786"></polygon>
+            <path d="M62,132 L53,140" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <polyline id="Path" stroke="#E0E0E0" stroke-width="2" points="107 143 107 154 97 154"></polyline>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="21 158.2 25.6666667 157 28 170.8 23.3333333 172"></polygon>
+            <polygon id="Path" fill="#E0E0E0" fill-rule="nonzero" points="71 193 73.6666667 193 75 196 72.3333333 196"></polygon>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="128 206.545455 138 206 133.294118 212"></polygon>
+            <circle id="Oval" fill="#E0E0E0" fill-rule="nonzero" cx="7.5" cy="215.5" r="1.5"></circle>
+            <polygon id="Path" stroke="#E0E0E0" stroke-width="2" points="137.666667 167 137 171 141 169.857143"></polygon>
+            <path d="M186,184 L195,192" id="Path" stroke="#E0E0E0" stroke-width="2"></path>
+            <circle id="Oval" stroke="#E0E0E0" stroke-width="2" cx="207" cy="209" r="3"></circle>
+        </g>
+    </g>
+</svg>

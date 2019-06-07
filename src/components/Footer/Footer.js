@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import theme from '../../assets/theme';
+import { Link } from 'gatsby';
 
 const StyledFooter = styled.footer`
-    background-color: ${theme.colors.blue};
-    background-image: ${theme.gradient.blue};
-    color: white;
+    background-color: ${({ theme }) => theme.colors.blue};
+    background-image: ${({ theme }) => theme.gradient.blue};
+    color: ${({ theme }) => theme.colors.white};
 
-    div {
+    section {
         margin: 0 auto;
         max-width: 1140px;
         padding: 2rem 2rem 1.5rem;
@@ -17,26 +15,37 @@ const StyledFooter = styled.footer`
     }
 
     a {
-        color: white;
+        color: ${({ theme }) => theme.colors.white};
         text-decoration: underline;
     }
 `;
 
-const Footer = props => {
-    const { children } = props;
-    return (
-        <StyledFooter>
-            <div>{children}</div>
-        </StyledFooter>
-    );
-};
+const Footer = () => (
+    <StyledFooter>
+        <section>
+            <div>&copy; {new Date().getFullYear()} Rewind Conference</div>
 
-Footer.propTypes = {
-    children: PropTypes.node
-};
+            <div>
+                Built by{' '}
+                <a href="https://paulbremer.nl/" rel="noopener noreferrer" target="_blank">
+                    Paul Bremer
+                </a>{' '}
+                &amp;{' '}
+                <a href="https://twitter.com/mjakoek" rel="noopener noreferrer" target="_blank">
+                    Michael Koek
+                </a>{' '}
+                🔥
+            </div>
 
-// Footer.defaultProps = {
-//     siteTitle: ``
-// };
+            <div>
+                Designed by{' '}
+                <a href="https://rielledegroot.com/" rel="noopener noreferrer" target="_blank">
+                    Riëlle de Groot
+                </a>{' '}
+                💅
+            </div>
+        </section>
+    </StyledFooter>
+);
 
 export default Footer;
