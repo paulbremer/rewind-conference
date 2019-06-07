@@ -6,16 +6,21 @@ import Layout from '../components/Layout/Layout';
 import Item from '../components/Item/Item';
 import MailList from '../components/MailList/MailList';
 import SEO from '../components/seo';
+import NoTalksWarning from '../components/NoTalksWarning/NoTalksWarning';
 
 const ArchiveMonth = ({ data }) => {
-    const [talkData, setTalkData] = useState([]);
+    const [talksList, setTalksList] = useState([]);
 
     useEffect(() => {
-        const { talks } = data.rwconf.lineUps[0];
-        setTalkData(talks);
-        if (talks.length === 10 || talks.length === 8)
-            talks.splice(4, 0, { id: 'cMail', maillist: true });
-    }, [data.rwconf.lineUps]);
+        setTalksList(data.rwconf.lineUps);
+    }, [data.rwconf.lineUps, talksList]);
+
+    const displayTalks = (talk, index) => (
+        <React.Fragment key={talk.id}>
+            {index === 4 && <MailList />}
+            <Item talk={talk} isSecond={index % 2 === 0} />
+        </React.Fragment>
+    );
 
     return (
         <Layout>
@@ -24,9 +29,7 @@ const ArchiveMonth = ({ data }) => {
                 keywords={[`javascript`, `conference`, `talks`, `react`]}
             />
 
-            {talkData.map(talk =>
-                talk.maillist ? <MailList key={talk.id} /> : <Item key={talk.id} talk={talk} />
-            )}
+            {talksList.length ? talksList[0].talks.map(displayTalks) : <NoTalksWarning />}
         </Layout>
     );
 };
