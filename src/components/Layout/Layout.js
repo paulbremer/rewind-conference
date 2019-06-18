@@ -34,7 +34,8 @@ const Background = styled.div`
 `;
 
 const Layout = ({ children }) => {
-    const stored = localStorage.getItem('dark');
+    let stored;
+    if (typeof localStorage !== 'undefined') stored = localStorage.getItem('dark');
     const [darkMode, setDarkmode] = useState(stored === 'true');
 
     useEffect(() => {
